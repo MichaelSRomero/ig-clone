@@ -4,7 +4,7 @@ import OauthLogin from './OauthLogin.jsx'
 class Login extends Component {
   render() {
     return (
-      <form onSubmit={null}>
+      <form className="content__form" onSubmit={null}>
         <input 
           className="form__input form__input--border" 
           type="text" 
