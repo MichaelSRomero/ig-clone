@@ -1,6 +1,8 @@
 const path = require('path');
 const GoogleFontsPlugin = require('google-fonts-plugin')
+
 console.log("\nINSIDE WEBPACK.CONFIG", process.env.NODE_ENV)
+
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: path.resolve(__dirname, './client/index.js'),
@@ -16,7 +18,7 @@ module.exports = {
     // by default will use the current directory and is only necessary to serve static files
     contentBase: path.resolve(__dirname, './build'),
     // by default bundle is available as 'localhost:8080/bundle.js' but by providing a publicPath, it looks for 'localhost:8080/build/bundle.js'
-    publicPath: '/build/'
+    publicPath: '/build/',
   },
   devtool: 'eval-source-map',
   module: {
@@ -36,6 +38,7 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         loader: 'file-loader',
+        // example: 'images/logo.png'
         options: {name: '[name].[ext]', outputPath: 'images'}
         // options: {
         //   name(file) {
