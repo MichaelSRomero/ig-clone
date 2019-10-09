@@ -2,23 +2,47 @@ import React, { Component } from 'react';
 import OauthLogin from './OauthLogin.jsx'
 
 class Login extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      account: '',
+      password: ''
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    // TODO: Send request to backend server authenticating user info
+    console.log('SUBMIT!')
+  }
+
+  handleChange(e) {
+    const { value } = e.target;
+    // name will be based on the name attr set in input
+    this.setState({[e.target.name]: value})
+  }
+
   render() {
+    const { account, password } = this.state
     return (
-      <form className="content__form" onSubmit={null}>
+      <form className="content__form" onSubmit={this.handleSubmit}>
         <input 
           className="form__input form__input--border" 
           type="text" 
           name="account" 
-          value="" 
+          value={account}
           placeholder="Phone number, username, or email"
-          onChange={null}/>
+          onChange={this.handleChange}/>
         <input 
           className="form__input form__input--border" 
           type="password" 
           name="password" 
-          value="" 
+          value={password} 
           placeholder="Password"
-          onChange={null}/>
+          onChange={this.handleChange}/>
         <input 
           className="form__login form__login--opacity" 
           type="submit" 

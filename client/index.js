@@ -1,3 +1,6 @@
+/* 
+** @entry point for webpack to bundle all code
+*/
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App.jsx'
