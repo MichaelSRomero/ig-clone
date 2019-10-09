@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: process.env.NODE_ENV,
   entry: path.resolve(__dirname, './client/index.js'),
   output: {
     filename: 'bundle.js',
@@ -17,7 +17,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: {presets: ['@babel/preset-env', '@babel/preset-react']}
+          options: {presets: ['@babel/preset-env', '@babel/preset-react'], cacheDirectory: true}
         }
       }
     ]

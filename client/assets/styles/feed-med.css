@@ -1,0 +1,30 @@
+/*************** MIN-WIDTH: 640px ***************/
+.card__container {
+  background-color: #fff;
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 3px;
+}
+
+.sidebar {
+  margin-top: 6.313em;
+  margin-bottom: 24px;
+}
+
+.sidebar__stories {
+  border: 1px solid rgb(230, 230, 230);
+}
+
+/*************** MIN-WIDTH: 736px ***************/
+@media screen and (min-width: 736px) {
+  .card__content {
+    margin-bottom: 0;
+  }
+
+  .card__likes {
+    margin-bottom: 8px;
+  }
+
+  .comment-form--display {
+    display: flex;
+  }
+}

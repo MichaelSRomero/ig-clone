@@ -1,0 +1,41 @@
+/* MIN-WIDTH: 876px */
+footer {
+  height: 122px;
+  max-width: 1012px;
+  margin: 0 auto;
+}
+
+.footer__nav {
+  justify-content: flex-start;
+}
+
+.nav__links {
+  align-items: flex-end;
+  max-width: 876px;
+  margin: 0;
+}
+
+.footer__copyright {
+  text-align: left;
+}
+
+/* MIN-WIDTH: 1012px */
+@media screen and (min-width: 1012px) {
+  .footer__nav {
+    align-items: center;
+  }
+
+  .nav__links {
+    justify-content: flex-start;
+    width: 75%;
+  }
+
+  .nav__link {
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+
+  .footer__copyright {
+    width: 25%;
+  }
+}
