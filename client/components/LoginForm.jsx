@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OauthLogin from './OauthLogin.jsx'
 
-class Login extends Component {
+class LoginForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -23,7 +23,10 @@ class Login extends Component {
         body: JSON.stringify({username: account, password})
       })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+          console.log(data)
+          this.props.history.push('/home')
+        })
       .catch(err => console.error('Error during fetch request', err))
     }
   }
@@ -68,4 +71,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default LoginForm;
