@@ -9,10 +9,12 @@ const { User } = require('../models/database').models;
 */
 userController.createUser = (req, res, next) => {
   console.log('\n*********** userController.createUser ****************', `\nMETHOD: ${req.method} \nENDPOINT: '${req.url}' \nBODY: ${JSON.stringify(req.body)} `);
+  
   const { username, password } = req.body;
   User.create({username, password})
     .then(user => {
-      console.log("\nNEW USER ------------------", user.get('username'))
+      console.log("\nNEW USER ------------------\n", user.get())
+      res.locals.user = user.get()
       next()
     })
   .catch(err => {
