@@ -1,15 +1,27 @@
 const path = require('path');
 const userController = {};
+const { User } = require('../models/database').models;
 
 /**
- * @Path server -> userRouter -> userController
+ * @Path server -> userRouter -> userController - userRouter
  * @Method -> POST
  * @Endpoint -> "/login"
 */
 userController.createUser = (req, res, next) => {
   console.log('\n*********** userController.createUser ****************', `\nMETHOD: ${req.method} \nENDPOINT: '${req.url}' \nBODY: ${JSON.stringify(req.body)} `);
-
-  next()
+  const { username, password } = req.body;
+  User.create({username, password})
+    .then(user => {
+      console.log("\nNEW USER ------------------", user.get('username'))
+      next()
+    })
+  .catch(err => {
+    next({
+      location: 'userController.createUser',
+      error: err.message,
+      status: 500
+    })
+  })
 }
 
 module.exports = userController;

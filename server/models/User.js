@@ -5,8 +5,23 @@
 */
 const User = (sequelize, DataTypes) => {
   const User = sequelize.define('user', {
-    username: {type: DataTypes.STRING, unique: true},
-    password: {type: DataTypes.STRING}
+    username: {
+      type: DataTypes.STRING, 
+      unique: true,
+      allowNull: false,
+      validate: {
+        notNull: true,
+        notEmpty: true
+      }
+    },
+    password: {
+      type: DataTypes.STRING, 
+      allowNull: false,
+      validate: {
+        notNull: true,
+        notEmpty: true
+      }
+    }
   })
   return User;
 }

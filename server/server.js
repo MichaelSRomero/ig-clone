@@ -19,7 +19,7 @@ console.log("\nENV: ", process.env.NODE_ENV)
  * in req.body
  */
 app.use(cors(), bodyParser.json(), (req, res, next) => {
-  console.log('\n*********** BodyParser ****************', `\nMETHOD: ${req.method} \nENDPOINT: '${req.url}' \nBODY: ${JSON.stringify(req.body)} `);
+  console.log('\n*********** BodyParser & CORS ****************', `\nMETHOD: ${req.method} \nENDPOINT: '${req.url}' \nBODY: ${JSON.stringify(req.body)} `);
   next();
 })
 
@@ -38,6 +38,15 @@ if (process.env.NODE_ENV === 'production') {
     res.status(200).sendFile(path.resolve(__dirname, '../build/index.html'))
   })
 }
+
+/**
+ * @errorHandler
+*/
+app.use((err, req, res, next) => {
+  const message = `\nError inside ${err.location}: ${err.error}`;
+  console.log(message)
+  res.status(err.status).send(err.error)
+})
 
 // As soon as tables are created, opens a connection to the server
 database.sync().then(() => {
