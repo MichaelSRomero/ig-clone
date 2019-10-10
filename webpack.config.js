@@ -19,6 +19,11 @@ module.exports = {
     contentBase: path.resolve(__dirname, './build'),
     // by default bundle is available as 'localhost:8080/bundle.js' but by providing a publicPath, it looks for 'localhost:8080/build/bundle.js'
     publicPath: '/build/',
+    proxy: {
+      '/login': {
+        target: 'http://localhost:3000'
+      }
+    }
   },
   devtool: 'eval-source-map',
   module: {

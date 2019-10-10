@@ -15,8 +15,16 @@ class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const { account, password } = this.state
     // TODO: Send request to backend server authenticating user info
-    console.log('SUBMIT!')
+    fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({username: account, password})
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
+    .catch(err => console.error('Error during fetch request', err))
   }
 
   handleChange(e) {

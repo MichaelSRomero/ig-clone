@@ -2,9 +2,15 @@ const { PORT } = require('./constants')
 const path = require('path');
 const express = require('express');
 const app = express();
+// Middlewares
+const cors = require('cors');
 const bodyParser = require('body-parser');
+// Database
 const database = require('./models/database').sequelize
 const { models } = require('./models/database')
+
+// Routers //
+const userRouter = require('./routes/userRouter')
 
 console.log("\nENV: ", process.env.NODE_ENV)
 
@@ -12,16 +18,19 @@ console.log("\nENV: ", process.env.NODE_ENV)
  * Automatically parse body content from incoming requests and place it
  * in req.body
  */
-app.use(bodyParser.json(), (req, res, next) => {
+app.use(cors(), bodyParser.json(), (req, res, next) => {
   console.log('\n*********** BodyParser ****************', `\nMETHOD: ${req.method} \nENDPOINT: '${req.url}' \nBODY: ${JSON.stringify(req.body)} `);
   next();
 })
 
-app.post('/login', (req, res) => {
-  console.log('\n*********** Login ****************', `\nMETHOD: ${req.method} \nENDPOINT: '${req.url}' \nBODY: ${JSON.stringify(req.body)} `);
-  res.status(200).json(req.body)
-})
+/**
+ * Main Routes
+ */
+app.use('/login', userRouter)
 
+/**
+ * @description access these routes when in Production mode
+ */
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.resolve(__dirname, '../build')))
   app.use('/images', express.static(path.resolve(__dirname, '../build/images')))
