@@ -44,7 +44,7 @@ userController.verifyUser = (req, res, next) => {
         res.locals.user = { id, username }
         return next()
       }
-      // TODO: Possibly redirect 
+      // TODO: Possibly redirect or add JWT
       res.status(401).json({message: 'Invalid username or password', status: 'unauthorized'})
     })
     .catch(err => {

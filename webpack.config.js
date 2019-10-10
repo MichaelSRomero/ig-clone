@@ -37,20 +37,24 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        loader: 'file-loader',
-        // example: 'images/logo.png'
-        options: {name: '[name].[ext]', outputPath: 'images'}
-        // options: {
-        //   name(file) {
-        //     if (process.env.NODE_ENV === 'development') {
-        //       return '[name].[ext]';
-        //     }
+        use: [ {loader: 'url-loader',} ]
+      },
+      // {
+      //   test: /\.(png|svg|jpg|gif)$/,
+      //   loader: 'file-loader',
+      //   // example: 'images/logo.png'
+      //   options: {name: '[name].[ext]', outputPath: 'images'}
+      //   // options: {
+      //   //   name(file) {
+      //   //     if (process.env.NODE_ENV === 'development') {
+      //   //       return '[name].[ext]';
+      //   //     }
 
-        //     return '[contenthash].[ext]';
-        //   },
-        //   outputPath: 'images'
-        // }
-      }
+      //   //     return '[contenthash].[ext]';
+      //   //   },
+      //   //   outputPath: 'images'
+      //   // }
+      // }
     ]
   },
   plugins: [

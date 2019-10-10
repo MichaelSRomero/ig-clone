@@ -1,111 +1,113 @@
 /*************** MIN-WIDTH: 1000px ***************/
-main {
-  width: initial;
-}
-
-.container {
-  flex-direction: row;
-  max-width: 935px;
-  width: 100%;
-  margin-top: 4.813em;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 60px;
-}
-
-.main--order {
-  order: 0;
-  margin-right: 28px;
-}
-
-.card__container {
-  margin-left: none;
-  margin-right: none;
-}
-
-/*************** Sidebar ***************/
-.sidebar {
-  width: 293px;
-  margin-top: 0;
-}
-
-.sidebar--display {
-  display: inherit;
-}
-
-.sidebar__user {
-  display: flex;
-  height: 62px;
-  padding-left: 5px;
-}
-
-.sidebar__user-icon--size {
-  border: 2px double rgb(208, 74, 86);
-  height: 34px;
-  width: 34px;
-}
-
-.sidebar__user-content {
-  margin-top: 6px;
-  margin-left: 14px;
-}
-
-.sidebar__username--weight {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.sidebar__user-desc {
-  color: #999;
-  font-size: 12px;
-}
-
-.sidebar__user-desc--font-size {
-  font-size: 10px;
-}
-
-.sidebar__user-desc--display {
-  display: inherit;
-}
-
-.sidebar__stories {
-  background-color: #fff;
-  margin-top: 4px;
-  padding: 0;
-}
-
-.story-header {
-  height: initial;
-  margin-top: 12px;
-  padding: 4px 16px;
-}
-
-.story-header--display {
-  display: flex;
-}
-
-.story__h6 {
-  color: #999;
-  font-size: 14px;
-  font-weight: 600;
-  flex-grow: 1;
-}
-.story__text {
-  color: #262626;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-  .story__text:active {
-    opacity: .5;
+@media screen and (min-width: 1000px) {
+  main {
+    width: initial;
   }
 
-.story-list {
-  margin-left: 16px;
-}
+  .container {
+    flex-direction: row;
+    max-width: 935px;
+    width: 100%;
+    margin-top: 4.813em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 60px;
+  }
 
-.story__user {
-  display: flex;
-  align-items: center;
+  .main--order {
+    order: 0;
+    margin-right: 28px;
+  }
+
+  .card__container {
+    margin-left: none;
+    margin-right: none;
+  }
+
+  /*************** Sidebar ***************/
+  .sidebar {
+    width: 293px;
+    margin-top: 0;
+  }
+
+  .sidebar--display {
+    display: inherit;
+  }
+
+  .sidebar__user {
+    display: flex;
+    height: 62px;
+    padding-left: 5px;
+  }
+
+  .sidebar__user-icon--size {
+    border: 2px double rgb(208, 74, 86);
+    height: 34px;
+    width: 34px;
+  }
+
+  .sidebar__user-content {
+    margin-top: 6px;
+    margin-left: 14px;
+  }
+
+  .sidebar__username--weight {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .sidebar__user-desc {
+    color: #999;
+    font-size: 12px;
+  }
+
+  .sidebar__user-desc--font-size {
+    font-size: 10px;
+  }
+
+  .sidebar__user-desc--display {
+    display: inherit;
+  }
+
+  .sidebar__stories {
+    background-color: #fff;
+    margin-top: 4px;
+    padding: 0;
+  }
+
+  .story-header {
+    height: initial;
+    margin-top: 12px;
+    padding: 4px 16px;
+  }
+
+  .story-header--display {
+    display: flex;
+  }
+
+  .story__h6 {
+    color: #999;
+    font-size: 14px;
+    font-weight: 600;
+    flex-grow: 1;
+  }
+  .story__text {
+    color: #262626;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+    .story__text:active {
+      opacity: .5;
+    }
+
+  .story-list {
+    margin-left: 16px;
+  }
+
+  .story__user {
+    display: flex;
+    align-items: center;
+  }
 }
