@@ -27,6 +27,7 @@ app.use(cors(), bodyParser.json(), (req, res, next) => {
  * Main Routes
  */
 app.use('/login', userRouter)
+app.use('/accounts', userRouter)
 
 /**
  * @description access these routes when in Production mode

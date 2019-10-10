@@ -30,19 +30,21 @@ const User = (sequelize, DataTypes) => {
       beforeCreate: beforeCreate
     }
   })
+
+  /**
+   * @returns true/false if password is valid
+   */
+  User.prototype.validPassword = async function(password) {
+    return await bcrypt.compare(password, this.password)
+  }
   return User;
 }
 
 // hashing password for users
-const beforeCreate = ('beforeCreate', (user, options) => {
+const beforeCreate = ('beforeCreate', async (user, options) => {
   console.log("\n **************** INSIDE BEFORECREATE HOOK ***************")
-  return bcrypt.hash(user.password, SALT_WORK_FACTOR)
-    .then(hashedPassword => {
-      user.password = hashedPassword;
-    })
-    .catch(err => {
-      console.error("Error during hashing password: ", err.message)
-    })
+  user.password = await bcrypt.hash(user.password, SALT_WORK_FACTOR);
 })
+
 
 module.exports = User;

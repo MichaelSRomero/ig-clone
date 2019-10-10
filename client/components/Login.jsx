@@ -17,7 +17,7 @@ class Login extends Component {
     e.preventDefault();
     const { account, password } = this.state
     if (account.length && password.length) {
-      fetch('http://localhost:3000/login', {
+      fetch('http://localhost:3000/accounts/login', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username: account, password})
