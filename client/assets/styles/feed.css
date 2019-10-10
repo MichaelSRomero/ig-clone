@@ -214,14 +214,14 @@ input:active, input:focus {
   display: none;
 }
 
-.form__input {
+.comment-form__input {
   flex-grow: 1;
   border: none;
   font-size: 14px;
   height: 100%;
 }
 
-.form__button {
+.comment-form__button {
   border: none;
   color: #3897f0;
   cursor: pointer;
@@ -229,7 +229,7 @@ input:active, input:focus {
   font-weight: 600;
 }
 
-  .form__button:active {
+  .comment-form__button:active {
     opacity: 0.75;
   }
 
